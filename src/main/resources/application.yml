@@ -1,0 +1,13 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      myCircuitBreaker:
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10000ms
+        permittedNumberOfCallsInHalfOpenState: 2
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        minimumNumberOfCalls: 2
+        recordExceptions:
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
